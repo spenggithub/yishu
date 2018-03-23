@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="node_modules/vue/dist/vue.js"></script>
+  <script src="node_modules/vuex/dist/vuex.js"></script>
+</head>
+<body>
+<div id="app">
+  <form action="">
+    <input type="text" name="123">
+    <input type="file" name="avatar">
+  </form>
+</div>
+<script>
+  import axios from 'axios'
+  async function getMoviesFromApi () {
+    try {
+      axios.get('https://facebook.github.io/react-native/movies.json').then(response=>{
+        let res = response.data;
+        return res.movies;
+      })
+    }
+  }
+  getMoviesFromApi().then(data=>{
+    console.log(data)
+  })
+</script>
+</body>
+</html>
